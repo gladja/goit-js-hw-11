@@ -1,6 +1,6 @@
 :root {
-  --time: 250ms;
-  --time-cubic-bezier: cubic-bezier(0.4, 0, 0.2, 1);
+  --timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  --animation-duration: 250ms;
 }
 
 body {
@@ -13,11 +13,52 @@ body {
   text-align: center;
 }
 
+.form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /*position: fixed;*/
+  z-index: 9;
+  background: #22c0f1;
+
+  /*padding: 0 auto;*/
+  /*width: 1920px;*/
+  margin-bottom: 20px;
+}
+
 .search-form {
   padding: 10px 0;
   background: #22c0f1;
 }
 
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  /*margin-top: 20px;*/
+}
+
+.photo-card {
+  width: 450px;
+}
+
+.gallery__image:hover {
+  transform: scale(1.01);
+}
+
+.gallery__image {
+
+  object-fit: cover;
+  transition: transform var(--animation-duration) var(--timing-function);
+}
+
+.info {
+  display: flex;
+  /*flex-wrap: wrap;*/
+  justify-content: center;
+  gap: 5px;
+}
 /*.breed-select {*/
 /*  padding: 5px;*/
 /*  margin: 10px auto;*/
