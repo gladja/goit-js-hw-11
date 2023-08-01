@@ -7,8 +7,7 @@ axios.defaults.baseURL = 'https://pixabay.com/api/';
 
 const getContactService = async (search, page) => {
   try {
-   return await axios.get(
-     `?key=${API_KEY}&q=${search}&image_type=photo&orientation=horizontal&safesearch=true&&per_page=40&page=${page}`)
+   return await axios.get(`?key=${API_KEY}&q=${search}&image_type=photo&orientation=horizontal&safesearch=true&&per_page=40&page=${page}`)
   } catch (error) {
     // console.log(error);
     Notiflix.Notify.failure('Sorry ERROR. Please try again.');
