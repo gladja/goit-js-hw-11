@@ -1,7 +1,7 @@
 import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.css';
 
-export default function simpleLightbox() {
+ function simpleLightbox() {
   let gallery = new SimpleLightbox('.gallery a',
     {
       fadeSpeed: 300,
@@ -11,3 +11,7 @@ export default function simpleLightbox() {
       captionDelay: 250,
     });
 }
+
+
+
+export {simpleLightbox};

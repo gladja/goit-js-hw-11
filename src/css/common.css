@@ -19,7 +19,7 @@ body {
   justify-content: center;
   align-items: center;
   /*position: fixed;*/
-  z-index: 9;
+  /*z-index: 9;*/
   background: #22c0f1;
 
   /*padding: 0 auto;*/
@@ -62,4 +62,12 @@ body {
   /*flex-wrap: wrap;*/
   justify-content: center;
   gap: 5px;
+}
+
+.is-hidden {
+  opacity: 0;
+}
+
+.load-more {
+  margin: 10px 0 30px;
 }

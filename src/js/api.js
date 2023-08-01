@@ -1,38 +1,18 @@
 import axios from 'axios';
+import Notiflix from 'notiflix';
 
-
-const KEY = '38551028-7f205e86e4b61da8a00434006'
-let page = 1;
+const API_KEY = '38551028-7f205e86e4b61da8a00434006'
 
 axios.defaults.baseURL = 'https://pixabay.com/api/';
-// const token = sessionStorage.getItem('token');
-// axios.defaults.headers.common.Authorization = `Bearer ${token}`
 
-const getContactService =  (search, ) => {
+const getContactService = async (search, page) => {
   try {
-   return axios.get(
-     `?key=${KEY}&q=${search}&image_type=photo&orientation=horizontal&safesearch=true&page=${page}&per_page=40`)
-    // return data;
+   return await axios.get(
+     `?key=${API_KEY}&q=${search}&image_type=photo&orientation=horizontal&safesearch=true&&per_page=40&page=${page}`)
   } catch (error) {
-    console.log(error.message);
+    // console.log(error);
+    Notiflix.Notify.failure('Sorry ERROR. Please try again.');
   }
 }
 
-function loadMore() {
-  page += 1;
-  console.log(page);
-  // getContactService(page).then(data => {
-  // if (data.data.totalHits > 0){
-  //   Notiflix.Notify.success(`Hooray! We found ${data.data.totalHits} images.`);
-  // }
-  // console.log(data.data);
-
-  // renderItem(data.data.hits);
-  // simpleLightbox();
-  // scroll();
-  // });
-return page
-}
-
-export {getContactService, loadMore}
-// https://pixabay.com/api/?key=38551028-7f205e86e4b61da8a00434006&q=jesus&image_type=photo&pretty=true
+export {getContactService}
