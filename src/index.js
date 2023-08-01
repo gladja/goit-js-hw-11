@@ -1,8 +1,8 @@
 import Notiflix from 'notiflix';
 
-import { simpleLightbox } from './js/simpleLightbox';
-import { getContactService } from './js/api';
-import {renderItem} from './js/render';
+import { simpleLightbox } from '/js/simpleLightbox';
+import { getContactService } from '/js/api';
+import {renderItem} from '/js/render';
 // import {scroll} from './js/scroll';
 
 export const refs = {
