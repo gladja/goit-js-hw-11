@@ -96,7 +96,7 @@ const getContactService = async () => {
     // );
     return data;
   } catch (error) {
-    // console.log(error);
-    Notiflix.Notify.failure('Sorry ERROR. Please try again.');
+    console.log(error);
+    // Notiflix.Notify.failure('Sorry ERROR. Please try again.');
   }
 };
