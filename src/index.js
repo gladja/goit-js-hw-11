@@ -51,7 +51,7 @@ function searchQuery(event) {
       );
       refs.loadMoreBtm.classList.add('is-hidden');
     }
-    console.log(data.data);
+    // console.log(data.data);
     if (data?.data?.totalHits > 40) {
       refs.loadMoreBtm.classList.remove('is-hidden');
     }
