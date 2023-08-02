@@ -3,11 +3,11 @@ import Notiflix from 'notiflix';
 
 const API_KEY = '38551028-7f205e86e4b61da8a00434006';
 const BASE_URL = 'https://pixabay.com/api/';
-
+const per_page = 40;
 axios.defaults.baseURL = 'https://pixabay.com/api/';
 
 const getContactService = async (search, page) => {
-  const URL = `?key=${API_KEY}&q=${search}&image_type=photo&orientation=horizontal&safesearch=true&page=${page}&per_page=40`;
+  const URL = `?key=${API_KEY}&q=${search}&image_type=photo&orientation=horizontal&safesearch=true&page=${page}&per_page=${per_page}`;
   try {
     const { data } = await axios(`${URL}`);
     // return await axios.get(
@@ -29,5 +29,5 @@ const getContactService = async (search, page) => {
 //   });
 // }
 
-// export { getContactService };
+export { getContactService };
 // `?key=${API_KEY}&q=${search}&image_type=photo&orientation=horizontal&safesearch=true&per_page=40&page=${page}`
