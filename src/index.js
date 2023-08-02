@@ -1,6 +1,7 @@
 import Notiflix from 'notiflix';
+import SimpleLightbox from 'simplelightbox';
+import 'simplelightbox/dist/simple-lightbox.css';
 
-import { simpleLightbox } from './js/simpleLightbox';
 import { getContactService } from './js/api';
 import { renderItem } from './js/render';
 // import {scroll} from './js/scroll';
@@ -16,6 +17,14 @@ refs.loadMoreBtm.addEventListener('click', loadMore);
 
 let search = '';
 let page = 1;
+
+let gallery = new SimpleLightbox('.gallery a', {
+  fadeSpeed: 300,
+  animationSpeed: 250,
+  captions: true,
+  captionsData: 'alt',
+  captionDelay: 250,
+});
 
 function searchQuery(event) {
   event.preventDefault();
@@ -47,7 +56,8 @@ function searchQuery(event) {
       refs.loadMoreBtm.classList.remove('is-hidden');
     }
     renderItem(data.data.hits);
-    simpleLightbox();
+
+    gallery.refresh();
     // scroll();
   });
 }
@@ -65,7 +75,7 @@ function loadMore() {
       return;
     }
     renderItem(data.data.hits);
-    simpleLightbox();
+    gallery.refresh();
     refs.loadMoreBtm.classList.remove('is-hidden');
     // scroll();
   });

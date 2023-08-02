@@ -6,9 +6,9 @@ const BASE_URL = 'https://pixabay.com/api/';
 
 // axios.defaults.baseURL = 'https://pixabay.com/api/';
 
-const getContactService = (search, page) => {
+const getContactService = async (search, page) => {
   try {
-    return axios.get(
+    return await axios.get(
       `${BASE_URL}?key=${API_KEY}&q=${search}&image_type=photo&orientation=horizontal&safesearch=true&&per_page=40&page=${page}`
     );
   } catch (error) {
