@@ -2,7 +2,7 @@ import Notiflix from 'notiflix';
 
 import { simpleLightbox } from './js/simpleLightbox';
 import { getContactService } from './js/api';
-import {renderItem} from './js/render';
+import { renderItem } from './js/render';
 // import {scroll} from './js/scroll';
 
 export const refs = {
@@ -31,15 +31,19 @@ function searchQuery(event) {
   }
 
   getContactService(search, page).then(data => {
-    if (data.data.totalHits > 0) {
-      Notiflix.Notify.success(`Hooray! We found ${data.data.totalHits} images.`);
+    if (data?.data?.totalHits > 0) {
+      Notiflix.Notify.success(
+        `Hooray! We found ${data.data.totalHits} images.`
+      );
     }
-    if (data.data.totalHits === 0) {
-      Notiflix.Notify.failure('Sorry, there are no images matching your search query. Please try again.');
+    if (data?.data?.totalHits === 0) {
+      Notiflix.Notify.failure(
+        'Sorry, there are no images matching your search query. Please try again.'
+      );
       refs.loadMoreBtm.classList.add('is-hidden');
     }
     console.log(data.data);
-    if (data.data.totalHits > 40) {
+    if (data?.data?.totalHits > 40) {
       refs.loadMoreBtm.classList.remove('is-hidden');
     }
     renderItem(data.data.hits);
@@ -54,7 +58,9 @@ function loadMore() {
 
   getContactService(search, page).then(data => {
     if (data.data.hits.length === 0) {
-      Notiflix.Notify.warning('We\'re sorry, but you\'ve reached the end of search results.');
+      Notiflix.Notify.warning(
+        "We're sorry, but you've reached the end of search results."
+      );
       refs.loadMoreBtm.classList.add('is-hidden');
       return;
     }
@@ -64,5 +70,3 @@ function loadMore() {
     // scroll();
   });
 }
-
-
