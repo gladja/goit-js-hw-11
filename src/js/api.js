@@ -29,5 +29,5 @@ const getContactService = async (search, page) => {
 //   });
 // }
 
-export { getContactService };
+// export { getContactService };
 // `?key=${API_KEY}&q=${search}&image_type=photo&orientation=horizontal&safesearch=true&per_page=40&page=${page}`
