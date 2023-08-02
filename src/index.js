@@ -33,7 +33,8 @@ function searchQuery(event) {
   page = 1;
   refs.loadMoreBtm.classList.add('is-hidden');
 
-  search = event.target.searchQuery.value;
+  // search = event.target.searchQuery.value;
+  search = event.currentTarget.elements.searchQuery.value;
   if (search.trim() === '') {
     Notiflix.Notify.warning('Sorry, type search query. Please try again.');
     return;
@@ -59,8 +60,9 @@ function searchQuery(event) {
 
     gallery.refresh();
     // scroll();
-  });
-}
+  }).catch(error => console.log(error))
+  }
+
 
 function loadMore() {
   page += 1;
