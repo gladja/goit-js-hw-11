@@ -1,4 +1,3 @@
-import axios from 'axios';
 import Notiflix from 'notiflix';
 import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.css';
@@ -41,21 +40,22 @@ function searchQuery(event) {
   }
 
   getContactService(search, page).then(data => {
-    console.log(data);
-    if (data.totalHits > 0) {
-      Notiflix.Notify.success(`Hooray! We found ${data.totalHits} images.`);
+    if (data?.data?.totalHits > 0) {
+      Notiflix.Notify.success(
+        `Hooray! We found ${data.data.totalHits} images.`
+      );
     }
-    if (data.totalHits === 0) {
+    if (data?.data?.totalHits === 0) {
       Notiflix.Notify.failure(
         'Sorry, there are no images matching your search query. Please try again.'
       );
       refs.loadMoreBtm.classList.add('is-hidden');
     }
     console.log(data.data);
-    if (data.totalHits > 40) {
+    if (data?.data?.totalHits > 40) {
       refs.loadMoreBtm.classList.remove('is-hidden');
     }
-    renderItem(data.hits);
+    renderItem(data.data.hits);
 
     gallery.refresh();
     // scroll();
@@ -67,15 +67,14 @@ function loadMore() {
   refs.loadMoreBtm.classList.add('is-hidden');
 
   getContactService(search, page).then(data => {
-    if (data.hits.length === 0) {
+    if (data.data.hits.length === 0) {
       Notiflix.Notify.warning(
         "We're sorry, but you've reached the end of search results."
       );
       refs.loadMoreBtm.classList.add('is-hidden');
       return;
     }
-    console.log(data);
-    renderItem(data.hits);
+    renderItem(data.data.hits);
     gallery.refresh();
     refs.loadMoreBtm.classList.remove('is-hidden');
     // scroll();
